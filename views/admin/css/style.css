@@ -1,0 +1,38 @@
+.form-control-primary{
+    margin: 10px;
+    opacity: 0.7;
+    border-radius: 2px;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    padding: 70px 0 0 10px;
+    border-right: 1px solid #d3d3d3;
+}
+.sidebar-left{
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 70px);
+}
+#nav>li>a :hover{
+    background-color: blanchedalmond;
+}
+
+
+.col-md-9 {
+    position: fixed;
+    left: 350px;
+    top: 0px;
+    margin-top: 70px;
+    padding: 10px;
+  }
+  .bg-color{
+      background-color: #3F51B5;
+  }
+  .side-bg-color{
+      background-color: #FF5722;
+  }
