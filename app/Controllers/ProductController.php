@@ -1,8 +1,11 @@
 <?php
 namespace App\Controllers;
+
+use App\Models\my_Database;
 use App\Models\ProductModel;
     ini_set('display_errors', 1);
      error_reporting(E_ALL);
+    // function for get and view Product from Database ===================================================
 class ProductController{
     public function getAllproducts()
     {
@@ -10,12 +13,21 @@ class ProductController{
         $selectdata = $databasedata->selectdata("SELECT * FROM `products`" );
         return $selectdata;
     }
+    // function for Single Products======================================================================
     public function singledata($slug)
     {
         $databasedata = new ProductModel;
         $selectdata = $databasedata->selectdata("SELECT * FROM `products` WHERE slug='$slug'" );
         return $selectdata[0];
     }
+    // function for Edit Page  Products By ID ======================================================================
+    public function getProductByID($id)
+    {
+        $productById = new ProductModel;
+        $productDataById = $productById->selectdata("SELECT * FROM `products` WHERE id=$id" );
+        return $productDataById[0];
+    }
+    // function for Data Entry into Database with Image upload=============================================
     public function saveData()
     {
         $currentDir = __DIR__.'/../../uploads'; 
@@ -47,4 +59,6 @@ class ProductController{
         return $result;
         //print_r($result); exit;
     }
+
+   
 }
