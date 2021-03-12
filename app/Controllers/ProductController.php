@@ -59,6 +59,29 @@ class ProductController{
         return $result;
         //print_r($result); exit;
     }
+    public function UpdateData($id)
+    {
+        $currentDir = __DIR__.'/../../uploads'; 
+        
+        $fileName = $_FILES['product_image']['name'];
+        $fileName = date('ymdhi').'_'.$fileName;
+        $fileTemPath = $_FILES['product_image']['tmp_name'];
+        move_uploaded_file($fileTemPath,$currentDir.'/'.$fileName);
+        
+        $productData = $_POST;
+        $productName = $productData['Product_name'];
+        $productDescription = $productData['description'];
+        $productPrice = $productData['product_price'];
+        $productBrand = $productData['brand'];
+        $productColor = $productData['color'];
+        $productslug = date('d-m').'_'.$productName;
 
+        $UpdateQuery = "UPDATE `products` SET`Product_name`='".$productName."', `product_price`=$productPrice, `slug`='".$productslug."', `description`='".$productDescription."',`brand`='".$productBrand."',`product_image`='".$fileName."',`color`='".$productColor."' WHERE id=$id"; 
+        // print_r($UpdateQuery); exit;
+        $datasave = new ProductModel;
+        $result = $datasave->updateData($UpdateQuery);
+         return $result;
+        // print_r($result); exit;
+    }
    
 }

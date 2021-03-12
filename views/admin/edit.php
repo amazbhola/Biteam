@@ -10,7 +10,7 @@
    
     
      if (!empty($_POST)) {
-        $insert = $pro_obj->saveData();
+        $insert = $pro_obj->UpdateData($_GET['id']);
      }else {
          echo 'Empty Data';
      }
@@ -124,7 +124,7 @@
                             <label for="">Product Image</label>
                             <input class="form-control form-control-lg" name="product_image" id="" type="file" value="<?php echo $product_obj['product_image'];  ?>" />
                         </div>
-                        <button type="submit" class="btn btn-outline-success me-2">Submit</button>
+                        <button type="submit" class="btn btn-outline-success me-2">Update Product</button>
                     </form>
                 </div>
             </main>

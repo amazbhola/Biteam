@@ -26,5 +26,12 @@ class my_Database
     $insertresult = $this->mydatabaseConnection->query($insertQuery);
     return $insertresult;
   }
+
+  public function updateData($UpdateQuery)
+  {
+    $insertresult = $this->mydatabaseConnection->query($UpdateQuery);
+    return $insertresult;
+  }
+  
 }
 
