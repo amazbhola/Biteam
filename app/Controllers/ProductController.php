@@ -27,6 +27,18 @@ class ProductController{
         $productDataById = $productById->selectdata("SELECT * FROM `products` WHERE id=$id" );
         return $productDataById[0];
     }
+    // function for data delete By ID ===========================================================================
+    public function DeleteProduct($id)
+    {
+        $productById = new ProductModel;
+        $DeleteQuery = "DELETE FROM `products` WHERE id=$id";
+        $result = $productById->deletedata( $DeleteQuery);
+        if ($result) {
+            header('location:index.php');
+        }
+       
+    }
+   
     // function for Data Entry into Database with Image upload=============================================
     public function saveData()
     {
@@ -83,5 +95,6 @@ class ProductController{
          return $result;
         // print_r($result); exit;
     }
-   
+
+
 }

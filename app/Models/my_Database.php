@@ -33,5 +33,11 @@ class my_Database
     return $insertresult;
   }
   
+  public function deletedata($DeleteQuery)
+  {
+    $deleteresult = $this->mydatabaseConnection->query($DeleteQuery);
+    return $deleteresult;
+    
+  }
 }
 
