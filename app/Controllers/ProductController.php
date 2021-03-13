@@ -44,6 +44,7 @@ class ProductController{
     {
         $currentDir = __DIR__.'/../../uploads'; 
         
+        
         $fileName = $_FILES['product_image']['name'];
         $fileName = date('ymdhi').'_'.$fileName;
         $fileTemPath = $_FILES['product_image']['tmp_name'];
@@ -74,7 +75,13 @@ class ProductController{
     public function UpdateData($id)
     {
         $currentDir = __DIR__.'/../../uploads'; 
-        
+        // product image remove functions
+        // existing product catching by id
+        $existingProduct = $this->getProductByID($id);
+        // then removing product image by current name
+        $removePrductImage = $currentDir.'/'.$existingProduct['product_image'];
+        unlink($removePrductImage);
+
         $fileName = $_FILES['product_image']['name'];
         $fileName = date('ymdhi').'_'.$fileName;
         $fileTemPath = $_FILES['product_image']['tmp_name'];

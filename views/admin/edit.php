@@ -77,7 +77,8 @@
                         </div>
                         <div class="form-group">
                             <label for="">Product Image</label>
-                            <input class="form-control form-control-lg" name="product_image" id="" type="file" value="<?php echo $product_obj['product_image'];  ?>" />
+                            <input class="form-control form-control-lg" name="product_image" id="" type="file"  />
+                            <img width="100px" src="http://localhost/biteam/day5/uploads/<?=$product_obj['product_image'];  ?>" alt="">
                         </div>
                         <button type="submit" class="btn btn-outline-success me-2">Update Product</button>
                     </form>
